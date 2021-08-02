@@ -3,7 +3,7 @@
 
 const mergeSort = ( sketch ) => {
   let heights;
-  let started;;
+  let started;
   let pivotIndexes;
 
   sketch.setup = () => {
