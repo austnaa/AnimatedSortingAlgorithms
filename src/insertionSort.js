@@ -1,19 +1,17 @@
 // INSERTION SORT ALGORITHM p5.js SKETCH
-// AUSTN ATTAWAY, MARCH 22, 2021
+// AUSTN ATTAWAY, AUGUST 2021
 
 const insertionSort = ( sketch ) => {
   let heights;
   let outerIndex; // the index of the outer loop in the bubble sort
   let innerIndex; // the index of the inner loop in the bubble sort
 
+  // sets up this sketch for its first use
   sketch.setup = () => {
     endSort();
     setupSketchCanvas(sketch);
     heights = setupHeights();
     heights = randomizeHeights(heights);
-
-    // dont do the animation immediately
-    sketch.noLoop();
   };
 
   // draws the canvas in a loop when the sorting algorithm is running
@@ -22,11 +20,13 @@ const insertionSort = ( sketch ) => {
     if (outerIndex === heights.length) {
       // at the end of the outer loop, so finish
       endSort();
+
     } else if (innerIndex === -1) {
       // at the end of the inner loop, so increment the outer loop index
       // and continue
       outerIndex++;
       innerIndex = outerIndex;
+
     } else {
       // currently inside inner loop, swap elements to continue
       // finding the correct insertion point, or stop the inner loop
@@ -40,6 +40,7 @@ const insertionSort = ( sketch ) => {
         innerIndex = -1;
       }
     }
+
     sketch.drawElements();
   };
 
@@ -53,8 +54,6 @@ const insertionSort = ( sketch ) => {
       // set the color of the bars
       if (i === innerIndex) {
         sketch.fill(sketch.innerIndexColor);
-      } else if (i === outerIndex) {
-        sketch.fill(sketch.outerIndexColor);
       } else {
         sketch.fill(sketch.barColor);
       }
@@ -69,35 +68,25 @@ const insertionSort = ( sketch ) => {
   // prepares for the next sort and avoids highlighting
   // elements when the sort is not taking place.
   function endSort() {
+    sketch.noLoop();
     outerIndex = -1;
     innerIndex = -2;
-    sketch.noLoop();
   }
 
+  // starts the algorithm animation
   sketch.startSort = () => {
     outerIndex = 1;
     innerIndex = 1;
     sketch.loop();
   };
 
+  // resets the algorithm so it can be used again
   sketch.resetHeights = () => {
     endSort();
     heights = setupHeights();
     heights = randomizeHeights(heights);
     sketch.drawElements();
   };
-
-  sketch.stopSort = () => {
-    sketch.noLoop();
-  }
-
-  sketch.oneFrame = () => {
-    sketch.redraw();
-  }
-
-  sketch.resume = () => {
-    sketch.loop();
-  }
 }
 
 insertionSorter = new p5(insertionSort, 'p5-insertion-sort');

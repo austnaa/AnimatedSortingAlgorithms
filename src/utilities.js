@@ -16,7 +16,7 @@ let frame_rate = 30;
 let delay_ms = 1000 / 30;
 
 // the number of elements to be sorted and displayed on the sketch canvas.
-let num_elements = 100;
+let num_elements = 50;
 
 // the value each height value will be divisible by
 // that results in the largest height always
@@ -31,10 +31,10 @@ let element_width = canvas_width / num_elements;
 let background_rgb = [215, 215, 215];
 
 // the rgb value for the inner loop highlight on the sketch canvas.
-let hl_inner_rgb   = [25, 25, 25];
+let hl_inner_rgb   = [115, 115, 115];
 
 // the rgb value for the outer loop highlight on the sketch canvas.
-let hl_outer_rgb   = [184, 184, 184];
+let hl_outer_rgb   = [115, 115, 115];
 
 // the rgb value for the bar elements on the sketch canvas.
 let bar_rgb        = [46,  135, 255];
@@ -96,7 +96,6 @@ function swap(heights, i, j) {
 function setupSketchCanvas(sketch) {
   sketch.frameRate(frame_rate);
   let canvas = sketch.createCanvas(canvas_width, canvas_height);
-  // canvas.position(p5_xPosition, p5_yPosition, 'fixed');
 
   sketch.backgroundColor = sketch.color(background_rgb[0], background_rgb[1],
                            background_rgb[2]);

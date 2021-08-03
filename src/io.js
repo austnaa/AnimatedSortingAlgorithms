@@ -71,6 +71,7 @@ function setSpeed(value) {
 // sets the size of the algorithm array
 // depending on the value given
 function setSize(value) {
+  console.log(value);
   value = value * 10;
   num_elements = value;
   height_scalar = canvas_height / num_elements; // removed math.floor()

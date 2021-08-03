@@ -1,5 +1,5 @@
 // RADIX SORT ALGORITHM p5.js SKETCH
-// AUSTN ATTAWAY, MARCH 22, 2021
+// AUSTN ATTAWAY, AUGUST 2021
 
 const radixSort = ( sketch ) => {
   let heights;
@@ -112,9 +112,9 @@ const radixSort = ( sketch ) => {
   // prepares for the next sort and avoids highlighting
   // elements when the sort is not taking place.
   function endSort() {
+    sketch.noLoop();
     currentIndex = -2;
     started = false;
-    sketch.noLoop();
   }
 
   // starts the sorting algorithm animation
@@ -127,6 +127,7 @@ const radixSort = ( sketch ) => {
     sketch.loop();
   };
 
+  // resets the algorithm so it can be used again
   sketch.resetHeights = () => {
     endSort();
     heights = setupHeights();
@@ -134,103 +135,20 @@ const radixSort = ( sketch ) => {
     heightsCopy = copyArr(heights);
     sketch.drawElements();
   };
-
-  sketch.stopSort = () => {
-    sketch.noLoop();
-  }
-
-  sketch.oneFrame = () => {
-    sketch.redraw();
-  }
-
-  sketch.resume = () => {
-    sketch.loop();
-  }
-
-
 }
 
 radixSorter = new p5(radixSort, 'p5-radix-sort');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let arr = [11, 12, 13, 14, 15, 16, 258, 2345, 13, 1235, 3215, 9, 23, 0];
-// let buckets = [[], [], [], [], [], [], [], [], [], []];
-
-// use push(e) to enqueue
-// use shift() to dequeue
-
-// function radixSort(arr) {
-//   // find the number of digits in the largest number
-//   let numLoops = getLargestLength(arr);
-//   for (let i = 0; i < numLoops; i++) {
-//     // put all of the from the main array into the buckets depending on the
-//     // value at digit (length - i - 1)
-//     while (arr.length !== 0) {
-//       let currVal = arr.shift();
-//       let currString = currVal.toString();
-//       let currDigit = currString[currString.length - i - 1];
-//       // if the value at that index doesn't exist, put it into the
-//       // 0 bucket, otherwise put it in the correct place
-//       if (currDigit === undefined) {
-//         buckets[0].push(currVal);
-//       }
-//       else {
-//         buckets[currDigit].push(currVal);
-//       }
-//     }
-//
-//     // from 0 -> 9, enqueue the elements from the buckets back
-//     // into the original array
-//     for (let i = 0; i < 9; i++) {
-//       while (buckets[i].length !== 0) {
-//         arr.push(buckets[i].shift());
-//       }
-//     }
-//
-//   }
-// }
-
+// returns a deep copy of the given array
 function copyArr(heights) {
-  let newArr = [];
+  let newArr = new Array(heights.length);
   for (let i = 0; i < heights.length; i++) {
     newArr[i] = heights[i];
   }
-
   return newArr;
-
 }
 
+// returns the most digits present in a value in the given array 
 function getLargestLength(arr) {
   let longestLength = 0;
 

@@ -1,11 +1,12 @@
 // QUICK SORT ALGORITHM p5.js SKETCH
-// AUSTN ATTAWAY, MARCH 22, 2021
+// AUSTN ATTAWAY, AUGUST 2021
 
 const quickSort = ( sketch ) => {
   let heights;
   let started;
   let pivotIndexes;
 
+  // sets up the algorithm for the first time
   sketch.setup = () => {
     started = false;
     pivotIndexes = [];
@@ -52,6 +53,7 @@ const quickSort = ( sketch ) => {
     }
   }
 
+  // resets the algorithm so it can be used again
   sketch.resetHeights = () => {
     sketch.noLoop();
     started = false;

@@ -63,8 +63,6 @@ bubbleSort = ( sketch ) => {
       // set the color of the bars
       if (i === innerIndex) {
         sketch.fill(sketch.innerIndexColor);
-      } else if (num_elements - i === outerIndex) {
-        // sketch.fill(sketch.outerIndexColor);
       } else {
         sketch.fill(sketch.barColor);
       }
