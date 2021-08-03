@@ -1,6 +1,6 @@
 
 /*
- * GLOBAL VARIABLES USED BY ALL ALGORITHMS
+ * GLOBAL VARIABLES USED BY SKETCHES
  */
 
 // the width of the algorithm sketch canvas.
@@ -9,20 +9,14 @@ let canvas_width  = window.innerWidth - (window.innerWidth / 6);
 // the width of the algorithm sketch canvas.
 let canvas_height = window.innerHeight - (window.innerHeight / 2);
 
-// the x position of the canvas from the top right of the window
-// let p5_xPosition = window.innerWidth / 12;
-
-// the x position of the canvas from the top right of the window
-// let p5_yPosition = window.innerHeight / 4 + 50;
-
 // the frame rate that the sketch canvas is drawn at.
-let frame_rate    = 30;
+let frame_rate = 30;
 
 // number of millisecond delay for the recursive algorithms
-let delay_ms      = 1000 / 30;
+let delay_ms = 1000 / 30;
 
 // the number of elements to be sorted and displayed on the sketch canvas.
-let num_elements  = 100;
+let num_elements = 100;
 
 // the value each height value will be divisible by
 // that results in the largest height always
@@ -37,15 +31,14 @@ let element_width = canvas_width / num_elements;
 let background_rgb = [215, 215, 215];
 
 // the rgb value for the inner loop highlight on the sketch canvas.
-let hl_inner_rgb   = [255, 255, 255];
+let hl_inner_rgb   = [25, 25, 25];
 
 // the rgb value for the outer loop highlight on the sketch canvas.
-let hl_outer_rgb   = [0, 0, 0];
+let hl_outer_rgb   = [184, 184, 184];
 
 // the rgb value for the bar elements on the sketch canvas.
 let bar_rgb        = [46,  135, 255];
 
-// let selectionSorter;
 let bubbleSorter;
 let selectionSorter;
 let insertionSorter;
@@ -55,7 +48,7 @@ let quickSorter;
 
 
 /*
-  GLOBAL FUNCTIONS
+ * GLOBAL FUNCTIONS
  */
 
 // populates and returns a heights array with length num_elements
@@ -65,8 +58,6 @@ function setupHeights() {
   let heights = [];
   for (let i = 1; i <= num_elements; i++) {
     heights.push(Math.floor(i * height_scalar));
-    // let randomHeight = floor(Math.random() * settings.canvasHeight);
-    // heights.push(randomHeight);
   }
   return heights;
 }
@@ -93,7 +84,7 @@ function randomizeHeights(heights) {
   return heights;
 }
 
-// swaps the elements in integer array heights at indexes i and j
+// swaps the elements in the integer array heights at indexes i and j
 function swap(heights, i, j) {
   let temp = heights[i];
   heights[i] = heights[j];
@@ -113,8 +104,8 @@ function setupSketchCanvas(sketch) {
   sketch.outerIndexColor = sketch.color(hl_outer_rgb[0], hl_outer_rgb[1],
                            hl_outer_rgb[2]);
 
-  sketch.innerIndexColor = sketch.color(hl_inner_rgb[0], hl_inner_rgb[0],
-                           hl_inner_rgb[0]);
+  sketch.innerIndexColor = sketch.color(hl_inner_rgb[0], hl_inner_rgb[1],
+                           hl_inner_rgb[2]);
 
   sketch.barColor = sketch.color(bar_rgb[0], bar_rgb[1],
                     bar_rgb[2]);

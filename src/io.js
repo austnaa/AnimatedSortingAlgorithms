@@ -1,6 +1,8 @@
-
+// the algorithm that is currently displayed on the window
 let current_sorting_algorithm = null;
 
+// sets the current sorting algorithm
+// depending on the type of algorithm given
 function chooseAlgo(type) {
   disableAllSketches();
 
@@ -37,8 +39,9 @@ function chooseAlgo(type) {
   current_sorting_algorithm.resetHeights();
 }
 
-
+// disables all possible sketches so we can set a new one
 function disableAllSketches() {
+  current_sorting_algorithm = null;
   document.getElementById("p5-bubble-sort").style.display = "none";
   document.getElementById("p5-selection-sort").style.display = "none";
   document.getElementById("p5-insertion-sort").style.display = "none";
@@ -47,33 +50,26 @@ function disableAllSketches() {
   document.getElementById("p5-quick-sort").style.display = "none";
 }
 
-
+// starts the algorithm that is selected
 function startAlgo() {
   current_sorting_algorithm.startSort();
 }
 
-function stopAlgo() {
-  current_sorting_algorithm.stopSort();
-}
-
-function stepAlgo() {
-  current_sorting_algorithm.oneFrame();
-}
-
+// stops the selected algorithm if it is running and
+// resets the array to be sorted
 function resetAlgo() {
   current_sorting_algorithm.resetHeights();
 }
 
-
-
-
-
+// sets the speed of sorting algorithms
 function setSpeed(value) {
   frame_rate = Math.floor(value);
   delay_ms = 1000 / value;
   // TODO SET DELAY_MS FOR RECURSIVE ALGOS
 }
 
+// sets the size of the algorithm array
+// depending on the value given
 function setSize(value) {
   value = value * 10;
   num_elements = value;
@@ -81,9 +77,6 @@ function setSize(value) {
   element_width = (canvas_width / num_elements);
   current_sorting_algorithm.resetHeights();
 }
-
-
-
 
 
 

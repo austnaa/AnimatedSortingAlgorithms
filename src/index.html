@@ -1,3 +1,9 @@
+<!--
+Austn Attaway
+Sorting Algorithm Visualizer
+August 2021
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Animated Sorting Algorithms</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
   <link rel="stylesheet" href="./styles.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -22,14 +28,10 @@
   <script src="quickSort.js"></script>
 </head>
 <header>
-  <!-- <div class="container pt-4"> -->
-    <!-- <div class="row justify-content-center"> -->
-      <h1>Sorting Algorithms, Visualized</h1>
-    <!-- </div> -->
-  <!-- </div> -->
+  <h1>Sorting Algorithms, Visualized</h1>
 </header>
 <body>
-
+  <!-- Algorithm Chooser -->
   <div class="col-4">
     <div class="dropdown">
       <button id="algo-chooser-button" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,64 +48,30 @@
     </div>
   </div>
 
-
+  <!-- Start/Reset Buttons -->
   <div class="col-4" style="padding-top: 15px;">
     <button class="btn" type="button" name="button" onclick="startAlgo()">Start</button>
-    <button class="btn" type="button" name="button" onclick="stepAlgo()">Step</button>
-    <button class="btn" type="button" name="button" onclick="stopAlgo()">Stop</button>
+    <!-- <button class="btn" type="button" name="button" onclick="stepAlgo()">Step</button>
+    <button class="btn" type="button" name="button" onclick="stopAlgo()">Stop</button> -->
     <button class="btn" type="button" name="button" onclick="resetAlgo()">Reset</button>
   </div>
 
+  <!-- Speed Slider -->
   <div class="col-2" style="padding-top: 15px">
     <label class="text" for="speed">  Speed:</label>
     <input class="center" type="range" id="speed-range" name="speed"
            min="1" max="60" oninput="setSpeed(this.value);">
   </div>
+
+  <!-- Size Slider -->
   <div class="col-2">
     <label class="text" for="size">Size:</label>
     <input class="center slider-colors" type="range" id="size" name="size"
            min="1" max="20" oninput="setSize(this.value);">
   </div>
-  <!-- <div class="container-fluid">
-    <div class="row text-center pt-1">
-      <div class="col-1"></div>
-      <div class="col-2">
-        <div class="dropdown" style="padding-top: 15px;">
-          <button id="algo-chooser-button" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Choose Algorithm
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" onclick="chooseAlgo('Bubble');">Bubble Sort</a>
-            <a class="dropdown-item" href="#" onclick="chooseAlgo('Selection');">Selection Sort</a>
-            <a class="dropdown-item" href="#" onclick="chooseAlgo('Insertion');">Insertion Sort</a>
-            <a class="dropdown-item" href="#" onclick="chooseAlgo('Radix');">Radix Sort</a>
-            <a class="dropdown-item" href="#" onclick="chooseAlgo('Merge');">Merge Sort</a>
-            <a class="dropdown-item" href="#" onclick="chooseAlgo('Quick');">Quick Sort</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-4" style="padding-top: 15px;">
-        <button class="btn" type="button" name="button" onclick="startAlgo()">Start</button>
-        <button class="btn" type="button" name="button" onclick="stepAlgo()">Step</button>
-        <button class="btn" type="button" name="button" onclick="stopAlgo()">Stop</button>
-        <button class="btn" type="button" name="button" onclick="resetAlgo()">Reset</button>
-      </div>
-      <div class="col-2">
-        <label class="" for="speed">Speed:</label>
-        <input class="center" type="range" id="speed-range" name="speed"
-               min="1" max="60" oninput="setSpeed(this.value);">
-      </div>
-      <div class="col-2">
-        <label class="" for="size">Size:</label>
-        <input class="center slider-colors" type="range" id="size" name="size"
-               min="1" max="20" oninput="setSize(this.value);">
-      </div>
-      <div class="col-4"></div>
-    </div>
-  </div> -->
 
-  <div id="p5-sketch" style="padding-left: 7%">
-  <!-- <div class="sketchWindow"> -->
+  <!-- The sketches (one shown at a time) -->
+  <div style="padding-left: 7%">
     <div id="p5-bubble-sort" style="display: none"></div>
     <div id="p5-selection-sort" style="display: none"></div>
     <div id="p5-insertion-sort" style="display: none"></div>
@@ -112,71 +80,4 @@
     <div id="p5-quick-sort" style="display: none"></div>
     </div>
   </div>
-
-
 </body>
-
-
-
-  <!-- <div class="controls-container">
-    Controls...
-  </div> -->
-
-
-
-
-
-<!--
-  <div id="p5-bubble-sort" class="">
-    <div class="">
-      <h1>Bubble Sort</h1>
-      <button type="button" name="button" onclick="bubbleSorter.startSort();">Start</button>
-    </div>
-  </div>
-
-  <div id="p5-insertion-sort" class="">
-    <div class="">
-      <h1>Insertion Sort</h1>
-      <button type="button" name="button" onclick="insertionSorter.startSort();">Start</button>
-    </div>
-  </div>
-
-  <div id="p5-selection-sort" class="">
-    <div class="">
-      <h1>Selection Sort</h1>
-      <button type="button" name="button" onclick="selectionSorter.startSort();">Start</button>
-    </div>
-  </div>
-
-  <div id="p5-radix-sort" class="">
-    <div class="">
-      <h1>Radix Sort</h1>
-      <button type="button" name="button" onclick="radixSorter.startSort();">Start</button>
-    </div>
-  </div>
-
-  <div id="p5-quick-sort" class="">
-    <div class="">
-      <h1>Quick Sort</h1>
-      <button type="button" name="button" onclick="quickSorter.startSort();">Start</button>
-    </div>
-  </div>
-
-  <div id="p5-merge-sort" class="">
-    <div class="">
-      <h1>Merge Sort</h1>
-      <button type="button" name="button" onclick="mergeSorter.startSort();">Start</button>
-    </div>
-  </div>
--->
-
-
-
-</body>
-
-
-<!--
-<button type="button" name="button" onclick="bubbleSorter.stopSort();">Stop</button>
-<button type="button" name="button" onclick="bubbleSorter.oneFrame();">Step</button>
-<button type="button" name="button" onclick="selectionSorter.randomizeHeights(); selectionSorter.drawElements();">Mix</button>
- -->

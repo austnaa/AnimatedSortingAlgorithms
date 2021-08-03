@@ -1,29 +1,28 @@
 // BUBBLE SORT ALGORITHM p5.js SKETCH
-// AUSTN ATTAWAY, MARCH 22, 2021
+// AUSTN ATTAWAY, AUGUST 2021
 
 bubbleSort = ( sketch ) => {
   let heights;
   let outerIndex; // the index of the outer loop in the bubble sort
   let innerIndex; // the index of the inner loop in the bubble sort
   let didSwap;    // whether or not the current inner loop completed a swap,
-                  // helpful for saving time if the array is sorted
+                  // for exiting the algorithm if the array is sorted
 
+  // sets the initial state of the sketch when the program is started
   sketch.setup = () => {
     endSort();
     setupSketchCanvas(sketch);
     heights = setupHeights();
     heights = randomizeHeights(heights);
 
-    // dont do the animation immediately
-    // sketch.drawElements();
-    sketch.noLoop();
   };
 
   // draws the canvas in a loop when the sorting algorithm is running
   sketch.draw = () => {
     // changes the frame rate during the animation
     sketch.frameRate(frame_rate);
-    if (innerIndex === heights.length - 1) {
+
+    if (innerIndex === heights.length - 1 - outerIndex) {
       // at the end of the inner loop, so increment the outer loop
       // and continue
       if (!didSwap) {
@@ -64,8 +63,8 @@ bubbleSort = ( sketch ) => {
       // set the color of the bars
       if (i === innerIndex) {
         sketch.fill(sketch.innerIndexColor);
-      } else if (i === outerIndex) {
-        sketch.fill(sketch.outerIndexColor);
+      } else if (num_elements - i === outerIndex) {
+        // sketch.fill(sketch.outerIndexColor);
       } else {
         sketch.fill(sketch.barColor);
       }
@@ -93,6 +92,8 @@ bubbleSort = ( sketch ) => {
     sketch.loop();
   };
 
+  // stops the algorithm if it is running and
+  // resets the array to be sorted
   sketch.resetHeights = () => {
     endSort();
     heights = setupHeights();
@@ -100,17 +101,6 @@ bubbleSort = ( sketch ) => {
     sketch.drawElements();
   };
 
-  sketch.stopSort = () => {
-    sketch.noLoop();
-  }
-
-  sketch.oneFrame = () => {
-    sketch.redraw();
-  }
-
-  sketch.resume = () => {
-    sketch.loop();
-  }
 }
 
 bubbleSorter = new p5(bubbleSort, 'p5-bubble-sort');
