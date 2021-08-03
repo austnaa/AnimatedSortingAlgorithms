@@ -10,10 +10,10 @@ let canvas_width  = window.innerWidth - (window.innerWidth / 6);
 let canvas_height = window.innerHeight - (window.innerHeight / 2);
 
 // the x position of the canvas from the top right of the window
-let p5_xPosition = window.innerWidth / 12;
+// let p5_xPosition = window.innerWidth / 12;
 
 // the x position of the canvas from the top right of the window
-let p5_yPosition = window.innerHeight / 4 + 50;
+// let p5_yPosition = window.innerHeight / 4 + 50;
 
 // the frame rate that the sketch canvas is drawn at.
 let frame_rate    = 30;
@@ -105,7 +105,7 @@ function swap(heights, i, j) {
 function setupSketchCanvas(sketch) {
   sketch.frameRate(frame_rate);
   let canvas = sketch.createCanvas(canvas_width, canvas_height);
-  canvas.position(p5_xPosition, p5_yPosition, 'fixed');
+  // canvas.position(p5_xPosition, p5_yPosition, 'fixed');
 
   sketch.backgroundColor = sketch.color(background_rgb[0], background_rgb[1],
                            background_rgb[2]);

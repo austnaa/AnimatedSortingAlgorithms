@@ -22,49 +22,14 @@
   <script src="quickSort.js"></script>
 </head>
 <header>
-  <!-- <div class="container pt-4"> -->
-    <!-- <div class="row justify-content-center"> -->
+  <div class="container pt-4">
+    <div class="row justify-content-center">
       <h1>Sorting Algorithms, Visualized</h1>
-    <!-- </div> -->
-  <!-- </div> -->
-</header>
-<body>
-
-  <div class="col-4">
-    <div class="dropdown">
-      <button id="algo-chooser-button" class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Choose Algorithm
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#" onclick="chooseAlgo('Bubble');">Bubble Sort</a>
-        <a class="dropdown-item" href="#" onclick="chooseAlgo('Selection');">Selection Sort</a>
-        <a class="dropdown-item" href="#" onclick="chooseAlgo('Insertion');">Insertion Sort</a>
-        <a class="dropdown-item" href="#" onclick="chooseAlgo('Radix');">Radix Sort</a>
-        <a class="dropdown-item" href="#" onclick="chooseAlgo('Merge');">Merge Sort</a>
-        <a class="dropdown-item" href="#" onclick="chooseAlgo('Quick');">Quick Sort</a>
-      </div>
     </div>
   </div>
-
-
-  <div class="col-4" style="padding-top: 15px;">
-    <button class="btn" type="button" name="button" onclick="startAlgo()">Start</button>
-    <button class="btn" type="button" name="button" onclick="stepAlgo()">Step</button>
-    <button class="btn" type="button" name="button" onclick="stopAlgo()">Stop</button>
-    <button class="btn" type="button" name="button" onclick="resetAlgo()">Reset</button>
-  </div>
-
-  <div class="col-2" style="padding-top: 15px">
-    <label class="text" for="speed">  Speed:</label>
-    <input class="center" type="range" id="speed-range" name="speed"
-           min="1" max="60" oninput="setSpeed(this.value);">
-  </div>
-  <div class="col-2">
-    <label class="text" for="size">Size:</label>
-    <input class="center slider-colors" type="range" id="size" name="size"
-           min="1" max="20" oninput="setSize(this.value);">
-  </div>
-  <!-- <div class="container-fluid">
+</header>
+<body>
+  <div class="container-fluid">
     <div class="row text-center pt-1">
       <div class="col-1"></div>
       <div class="col-2">
@@ -100,19 +65,15 @@
       </div>
       <div class="col-4"></div>
     </div>
-  </div> -->
-
-  <div id="p5-sketch" style="padding-left: 7%">
-  <!-- <div class="sketchWindow"> -->
-    <div id="p5-bubble-sort" style="display: none"></div>
-    <div id="p5-selection-sort" style="display: none"></div>
-    <div id="p5-insertion-sort" style="display: none"></div>
-    <div id="p5-radix-sort" style="display: none"></div>
-    <div id="p5-merge-sort" style="display: none"></div>
-    <div id="p5-quick-sort" style="display: none"></div>
-    </div>
   </div>
 
+  <!-- <div id="p5-sketch"></div> -->
+  <div id="p5-bubble-sort" style="display: none"></div>
+  <div id="p5-selection-sort" style="display: none"></div>
+  <div id="p5-insertion-sort" style="display: none"></div>
+  <div id="p5-radix-sort" style="display: none"></div>
+  <div id="p5-merge-sort" style="display: none"></div>
+  <div id="p5-quick-sort" style="display: none"></div>
 
 </body>
 

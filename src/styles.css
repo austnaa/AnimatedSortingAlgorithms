@@ -6,11 +6,14 @@
 */
 
 
+
+
 header {
+  height: 20%;
   background-color: rgb(46,  135, 255);
   color: rgb(215, 215, 215);
   font-family: 'Lato', sans-serif;
-  text-decoration: overline;
+  /* text-decoration: overline; */
 }
 
 h1 {
@@ -29,6 +32,12 @@ label {
   background-color: rgb(46,  135, 255);
   font-size: 20px;
   color: rgb(215, 215, 215);
+  font-family: 'Lato', sans-serif;
+}
+
+.text {
+  color: rgb(46,  135, 255);
+  font-size: 18px;
   font-family: 'Lato', sans-serif;
 }
 
@@ -61,7 +70,8 @@ input {
   font-family: 'Lato', sans-serif;
   color: rgb(46,  135, 255);
   background-color: rgb(215, 215, 215);
-  /* border-style: solid; */
+  border-color: black;
+  border-style: solid;
   /* border-radius: 3px; */
   /* shadow: 0; */
   /* margin-left: 3px; */
@@ -83,7 +93,8 @@ input[type=range] {
   -webkit-appearance: none;
   margin: 0;                          /* MODIFIED 10px 0 */
   width: 100%;
-  background-color: rgb(46,  135, 255);
+  /* background-color: rgb(46,  135, 255); */
+  background-color: rgb(215, 215, 215);
 }
 input[type=range]:focus {
   outline: none;
