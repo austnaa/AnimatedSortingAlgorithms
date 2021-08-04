@@ -10,6 +10,7 @@ header {
   background-color: rgb(46,  135, 255);
   color: rgb(215, 215, 215);
   font-family: 'Lato', sans-serif;
+  padding-left: 15px;
   /* text-decoration: overline; */
 }
 
